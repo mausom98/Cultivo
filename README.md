@@ -40,22 +40,6 @@ hurl install products node -P ./chaincode-products --debug
 hurl upgrade products node 1.2 -P ./chaincode-products
 ```
 
-## Start - if you don't have Hurley globally
-
-### Bring your project to life 
-
-```
-# Install dependencies - From the root of your project
-npm i
-# Create a new development blockchain network  - From the root of your project
-npm run env:restart
-```
-
-###  Install and upgrade chaincodes
-
-```
-# Install to your blockchain - From the root of your project
-npm run cc:start -- products
 
 
 
