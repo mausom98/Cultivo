@@ -1,6 +1,4 @@
-# cultivo - products
-
-
+# Cultivo
 
 ## Start
 
@@ -14,7 +12,19 @@ npm run cc:start -- products
 # Make a testing call to create a record in the ledger
 # Beware that the first call may fail with a timeout! Just happens the first time
 hurl invoke products products_create "{\"name\":\"my first request\",\"id\":\"0001\",\"created\":0,\"modified\":0}"
+```
 
+Install Hurley Globally
+
+`npm i -g @worldsibu/hurley`
+
+
+
+---
+
+If you don't want to, don't worries! This project works right away.
+
+## Start - if you have Hurley globally
 
 ### Bring your project to life 
 
@@ -38,9 +48,3 @@ hurl install products node -P ./chaincode-products --debug
 # Upgrade your existing chaincode - From the root of your project
 hurl upgrade products node 1.2 -P ./chaincode-products
 ```
-
-
-
-
-
-
