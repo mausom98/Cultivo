@@ -14,19 +14,7 @@ npm run cc:start -- products
 hurl invoke products products_create "{\"name\":\"my first request\",\"id\":\"0001\",\"created\":0,\"modified\":0}"
 ```
 
-Install Hurley Globally
-
-`npm i -g @worldsibu/hurley`
-
-
-
----
-
-If you don't want to, don't worries! This project works right away.
-
-## Start - if you have Hurley globally
-
-### Bring your project to life 
+## Start the Network 
 
 ```
 # Install dependencies - From the root of your project
@@ -34,6 +22,7 @@ npm i
 # Create a new development blockchain network  - From the root of your project
 hurl new
 ```
+---
 
 ###  Install and upgrade chaincodes
 
