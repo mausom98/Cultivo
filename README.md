@@ -15,34 +15,7 @@ npm run cc:start -- products
 # Beware that the first call may fail with a timeout! Just happens the first time
 hurl invoke products products_create "{\"name\":\"my first request\",\"id\":\"0001\",\"created\":0,\"modified\":0}"
 ```
-
-
-
-
-
 `npm i -g @worldsibu/hurley`
-
-
-
-```
-# Use the same package
-# Install a new chaincode with the same source code but the name 'anothernameforyourcc'
-hurl install anothernameforyourcc node
-```
-
-Other complex tasks you may need is installing to a different channel.
-
-```
-# Use the same package
-# Be sure you started your environment with more than one channel running 'hurl new --channels 2'. Otherwise this will throw an error.
-hurl install anothernameforyourcc node --channel ch2
-```
-
----
-
-If you don't want to, don't worries! This project works right away.
-
-
 
 ### Bring your project to life 
 
