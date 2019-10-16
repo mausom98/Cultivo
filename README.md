@@ -1,4 +1,4 @@
-# cultivoWeb - products
+# cultivo - products
 
 This awesome project was created automatically with <a href="https://github.com/worldsibu/convector-cli" target="_blank">Convector CLI</a>.
 By default new Convector projects locally include <a href="https://github.com/worldsibu/hurley">Hurley</a> to manage your development environment seamlessly, so you don't have to worry about setting up the network and hard ways to install  and upgrade your chaincodes.
@@ -17,13 +17,13 @@ npm run cc:start -- products
 hurl invoke products products_create "{\"name\":\"my first request\",\"id\":\"0001\",\"created\":0,\"modified\":0}"
 ```
 
-## About Hurley
 
-You may as well install **Hurley** globally for easier and more flexible management. 
+
+
 
 `npm i -g @worldsibu/hurley`
 
-Since with Hurley globally you have control over everything, some things that you can do, for example, is installing a Convector Smart Contract with a different name than the one you used for your project.
+
 
 ```
 # Use the same package
@@ -43,7 +43,7 @@ hurl install anothernameforyourcc node --channel ch2
 
 If you don't want to, don't worries! This project works right away.
 
-## Start - if you have Hurley globally
+
 
 ### Bring your project to life 
 
@@ -85,19 +85,7 @@ npm run env:restart
 # Install to your blockchain - From the root of your project
 npm run cc:start -- products
 
-# Upgrade your existing chaincode - From the root of your project
-npm run cc:upgrade -- products 1.2
-```
 
-## Tests
 
-```
-npm run test
-```
 
-> Check all the information to work with Convector <a href="https://worldsibu.github.io/convector" target="_blank">in the DOCS site</a>.
 
-## Collaborate to the Convector Suite projects
-
-* <a href="https://discord.gg/twRwpWt" target="_blank">Discord chat with the community</a>
-* <a href="https://github.com/worldsibu" target="_blank">Convector projects</a>
