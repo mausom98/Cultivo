@@ -1,0 +1,473 @@
+
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: cultivo
+  description: cultivo REST API Application
+basePath: /api/v1/cultivo
+
+tags:
+
+  - name: Customers
+    description: Simple customer endpoints
+
+  - name: Distributors
+    description: Simple distributor endpoints
+
+  - name: Manufacturers
+    description: Simple manufacturer endpoints
+
+  - name: Productss
+    description: Simple products endpoints
+
+  - name: Retailers
+    description: Simple retailer endpoints
+
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+definitions:
+  
+
+    CustomerBody:
+      type: object
+      title: Customer
+      required:
+         - id
+         - name
+         - productsBought
+      properties:
+        id:
+          type: string
+          example: a_text
+        name:
+          type: string
+          example: a_text
+        productsBought:
+          type: number
+          example: 123
+
+    DistributorBody:
+      type: object
+      title: Distributor
+      required:
+         - id
+         - name
+         - productsToBeShipped
+         - productsShipped
+         - productsReceived
+      properties:
+        id:
+          type: string
+          example: a_text
+        name:
+          type: string
+          example: a_text
+        productsToBeShipped:
+          type: number
+          example: 123
+        productsShipped:
+          type: number
+          example: 123
+        productsReceived:
+          type: number
+          example: 123
+
+    ManufacturerBody:
+      type: object
+      title: Manufacturer
+      required:
+         - id
+         - name
+         - updated
+         - price
+         - fat
+         - snf
+         - pi
+         - productsAvailable
+      properties:
+        id:
+          type: string
+          example: a_text
+        name:
+          type: string
+          example: a_text
+        updated:
+          type: number
+          example: 123
+        price:
+          type: number
+          example: 123
+        fat:
+          type: number
+          example: 123
+        snf:
+          type: number
+          example: 123
+        pi:
+          type: number
+          example: 123
+        productsAvailable:
+          type: number
+          example: 123
+
+    ProductsBody:
+      type: object
+      title: Products
+      required:
+         - id
+         - name
+         - created
+         - modified
+      properties:
+        id:
+          type: string
+          example: a_text
+        name:
+          type: string
+          example: a_text
+        created:
+          type: number
+          example: 123
+        modified:
+          type: number
+          example: 123
+
+    RetailerBody:
+      type: object
+      title: Retailer
+      required:
+         - id
+         - name
+         - productsOrdered
+         - productsAvailable
+         - productsSold
+      properties:
+        id:
+          type: string
+          example: a_text
+        name:
+          type: string
+          example: a_text
+        productsOrdered:
+          type: number
+          example: 123
+        productsAvailable:
+          type: number
+          example: 123
+        productsSold:
+          type: number
+          example: 123
+   
+
+    sendProductsToDistributionBody:
+       type: object
+       title: sendProductsToDistributionParams
+       required:
+          - manufacturerId
+          - distributorId
+          - sentProducts
+       properties:
+         manufacturerId:
+           type: string
+           example: a_text
+         distributorId:
+           type: string
+           example: a_text
+         sentProducts:
+           type: number
+           example: 123
+
+    orderProductsFromDistributorBody:
+       type: object
+       title: orderProductsFromDistributorParams
+       required:
+          - retailerId
+          - distributorId
+          - orderedProducts
+       properties:
+         retailerId:
+           type: string
+           example: a_text
+         distributorId:
+           type: string
+           example: a_text
+         orderedProducts:
+           type: number
+           example: 123
+
+    receiveProductsFromDistributorBody:
+       type: object
+       title: receiveProductsFromDistributorParams
+       required:
+          - retailerId
+          - distributorId
+          - receivedProducts
+       properties:
+         retailerId:
+           type: string
+           example: a_text
+         distributorId:
+           type: string
+           example: a_text
+         receivedProducts:
+           type: number
+           example: 123
+
+    buyProductsFromRetailerBody:
+       type: object
+       title: buyProductsFromRetailerParams
+       required:
+          - retailerId
+          - customerId
+          - boughtProducts
+       properties:
+         retailerId:
+           type: string
+           example: a_text
+         customerId:
+           type: string
+           example: a_text
+         boughtProducts:
+           type: number
+           example: 123
+
+paths:
+
+
+  /customers: 
+    get:
+      tags:
+        - Customers
+      description: Fetch all customers
+      responses:
+        200:
+          description: Returns all customers 
+    post:
+      tags:
+        - Customers
+      description: Create a new customer
+      parameters:
+        - name: customer
+          in: body
+          description: a customer
+          required: true
+          schema:
+            $ref: "#/definitions/CustomerBody"
+      responses:
+        200:
+          description: Successful insertion of customers 
+
+
+  /customers/{id}:
+    get:
+      tags:
+        - Customers
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The id of the customer to retrieve
+          type: string
+      responses:
+        200:
+          description: Return the customer with the specified id
+        404:
+          description: Customer not found 
+
+  /distributors: 
+    get:
+      tags:
+        - Distributors
+      description: Fetch all distributors
+      responses:
+        200:
+          description: Returns all distributors 
+    post:
+      tags:
+        - Distributors
+      description: Create a new distributor
+      parameters:
+        - name: distributor
+          in: body
+          description: a distributor
+          required: true
+          schema:
+            $ref: "#/definitions/DistributorBody"
+      responses:
+        200:
+          description: Successful insertion of distributors 
+
+
+  /distributors/{id}:
+    get:
+      tags:
+        - Distributors
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The id of the distributor to retrieve
+          type: string
+      responses:
+        200:
+          description: Return the distributor with the specified id
+        404:
+          description: Distributor not found 
+
+  /manufacturers: 
+    get:
+      tags:
+        - Manufacturers
+      description: Fetch all manufacturers
+      responses:
+        200:
+          description: Returns all manufacturers 
+    post:
+      tags:
+        - Manufacturers
+      description: Create a new manufacturer
+      parameters:
+        - name: manufacturer
+          in: body
+          description: a manufacturer
+          required: true
+          schema:
+            $ref: "#/definitions/ManufacturerBody"
+      responses:
+        200:
+          description: Successful insertion of manufacturers 
+
+
+  /manufacturers/{id}:
+    get:
+      tags:
+        - Manufacturers
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The id of the manufacturer to retrieve
+          type: string
+      responses:
+        200:
+          description: Return the manufacturer with the specified id
+        404:
+          description: Manufacturer not found 
+
+
+  /retailers: 
+    get:
+      tags:
+        - Retailers
+      description: Fetch all retailers
+      responses:
+        200:
+          description: Returns all retailers 
+    post:
+      tags:
+        - Retailers
+      description: Create a new retailer
+      parameters:
+        - name: retailer
+          in: body
+          description: a retailer
+          required: true
+          schema:
+            $ref: "#/definitions/RetailerBody"
+      responses:
+        200:
+          description: Successful insertion of retailers 
+
+
+  /retailers/{id}:
+    get:
+      tags:
+        - Retailers
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The id of the retailer to retrieve
+          type: string
+      responses:
+        200:
+          description: Return the retailer with the specified id
+        404:
+          description: Retailer not found 
+
+
+  /sendProductsToDistribution:
+    post:
+      tags:
+        - sendProductsToDistribution
+      description: sendProductsToDistribution
+      parameters:
+        - name: sendProductsToDistributionParams
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/sendProductsToDistributionBody"
+      responses:
+        200:
+          description: sendProductsToDistribution executed correctly
+        500:
+          description: sendProductsToDistribution raised an exception
+
+
+  /orderProductsFromDistributor:
+    post:
+      tags:
+        - orderProductsFromDistributor
+      description: orderProductsFromDistributor
+      parameters:
+        - name: orderProductsFromDistributorParams
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/orderProductsFromDistributorBody"
+      responses:
+        200:
+          description: orderProductsFromDistributor executed correctly
+        500:
+          description: orderProductsFromDistributor raised an exception
+
+
+  /receiveProductsFromDistributor:
+    post:
+      tags:
+        - receiveProductsFromDistributor
+      description: receiveProductsFromDistributor
+      parameters:
+        - name: receiveProductsFromDistributorParams
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/receiveProductsFromDistributorBody"
+      responses:
+        200:
+          description: receiveProductsFromDistributor executed correctly
+        500:
+          description: receiveProductsFromDistributor raised an exception
+
+
+  /buyProductsFromRetailer:
+    post:
+      tags:
+        - buyProductsFromRetailer
+      description: buyProductsFromRetailer
+      parameters:
+        - name: buyProductsFromRetailerParams
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/buyProductsFromRetailerBody"
+      responses:
+        200:
+          description: buyProductsFromRetailer executed correctly
+        500:
+          description: buyProductsFromRetailer raised an exception
+
