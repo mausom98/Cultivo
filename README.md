@@ -14,8 +14,7 @@ npm run cc:start -- products
 # Make a testing call to create a record in the ledger
 # Beware that the first call may fail with a timeout! Just happens the first time
 hurl invoke products products_create "{\"name\":\"my first request\",\"id\":\"0001\",\"created\":0,\"modified\":0}"
-```
-`npm i -g @worldsibu/hurley`
+
 
 ### Bring your project to life 
 
